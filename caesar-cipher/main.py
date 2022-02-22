@@ -12,13 +12,15 @@ def caesar(text, shift, direction):
         shift *= -1
 
     for letter in text:
+        if letter == ' ':
+            result += ' '
+        else:
+            shifted_index = alphabet.index(letter) + shift
 
-        shifted_index = alphabet.index(letter) + shift
-
-        if (shifted_index >= 26) or (shifted_index < 0):
-            shifted_index = shifted_index % 26
+            if (shifted_index >= 26) or (shifted_index < 0):
+                shifted_index = shifted_index % 26
         
-        result += alphabet[shifted_index]
+            result += alphabet[shifted_index]
     
     if direction == 'encode':
         print(f"The encoded text is:  {result}")
